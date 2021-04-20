@@ -1,0 +1,28 @@
+#include <iostream>
+#include <string>
+
+struct Czas {
+    using value_type = unsigned int;
+    value_type godzina;
+    value_type minuta;
+    value_type sekunda;
+    
+    Czas(value_type, value_type, value_type);
+    auto to_String() const -> std::string;
+};
+
+Czas::Czas(value_type g, value_type m, value_type s)
+    : godzina{g}
+    , minuta{m}
+    , sekunda{s}
+{}
+
+auto Czas::to_String() const -> std::string {
+    return std::to_String(godzina) + ":" + std::to_String(minuta) + ":" + std::to_String(sekunda);
+}
+
+auto main() -> int {
+    auto czas = Czas(23, 59, 59);
+    std::cout << czas.to_String() << "\n";
+    return 0;
+}
