@@ -24,6 +24,9 @@ auto Czas::to_String() const -> std::string {
 
 auto main() -> int {
     auto czas = Czas(23, 59, 59);
+    //czas.next_hour();
+    //czas.next_minute();
+    //czas.next_second();
     std::cout << czas.to_String() << "\n";
     return 0;
 }
