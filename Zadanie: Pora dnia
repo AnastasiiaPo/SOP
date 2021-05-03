@@ -57,7 +57,7 @@ auto Czas::to_String() const -> std::string {
 
 auto main() -> int {
     auto czas = Czas(23, 59, 59);
-    std::cout << czas.to_String() << "\n";
+    std::cout << to_String(czas.time_of_day()) << "\n";
     return 0;
 }
 
