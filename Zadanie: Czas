@@ -1,5 +1,6 @@
 #include <iostream>
 #include <string>
+#include <sstream>
 
 struct Czas {
     using value_type = unsigned int;
@@ -25,4 +26,30 @@ auto main() -> int {
     auto czas = Czas(23, 59, 59);
     std::cout << czas.to_String() << "\n";
     return 0;
+}
+
+void Czas::next_hour() {
+    godzina++;
+    
+    if (godzina == 24) {
+        godzina = 0;
+    }
+}
+
+void Czas::next_minute() {
+    minuta++;
+    
+    if (minuta == 60) {
+        minuta = 0;
+        next_hour();
+    }
+}
+
+void Czas::next_second() {
+    sekunda++;
+    
+    if (sekunda == 60) {
+        sekunda = 0;
+        next_minute();
+    }
 }
