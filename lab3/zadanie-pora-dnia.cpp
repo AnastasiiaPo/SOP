@@ -21,6 +21,8 @@ struct Czas {
     void next_hour();
     void next_minute();
     void next_second();
+    
+    auto time_of_day() const -> Time_of_day;
 };
 
 Czas::Czas(value_type g, value_type m, value_type s)
@@ -30,22 +32,22 @@ Czas::Czas(value_type g, value_type m, value_type s)
 {}
 
 auto Czas::time_of_day() const -> Time_of_day {
-    if (hour_ < 3) {
-        return TimeOfDay::NOC;
+    if (godzina < 3) {
+        return Time_of_day::NOC;
     }
-    if (hour_ < 6) {
-        return TimeOfDay::RANO;
+    if (godzina < 6) {
+        return Time_of_day::RANO;
     }
-    if (hour_ < 18) {
-        return TimeOfDay::DZIEN;
+    if (godzina < 18) {
+        return Time_of_day::DZIEN;
     }
-    if (hour_ < 22) {
-        return TimeOfDay::WIECZOR;
+    if (godzina < 22) {
+        return Time_of_day::WIECZOR;
     }
     return Time_of_day::NOC;
 }
 
-auto to_String(time_of_day x) -> std::string {
+auto to_string(Time_of_day x) -> std::string {
     switch(x) {
         case Time_of_day::NOC: return "NOC";
         case Time_of_day::RANO: return "RANO";
@@ -60,7 +62,7 @@ auto Czas::to_String() const -> std::string {
 
 auto main() -> int {
     auto czas = Czas(23, 59, 59);
-    std::cout << to_String(czas.time_of_day()) << "\n";
+    std::cout << to_string(czas.time_of_day()) << "\n";
     return 0;
 }
 
