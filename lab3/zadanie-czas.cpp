@@ -10,6 +10,9 @@ struct Czas {
     
     Czas(value_type, value_type, value_type);
     auto to_String() const -> std::string;
+    void next_hour();
+    void next_minute();
+    void next_second();
 };
 
 Czas::Czas(value_type g, value_type m, value_type s)
