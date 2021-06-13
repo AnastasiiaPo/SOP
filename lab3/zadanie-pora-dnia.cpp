@@ -79,7 +79,7 @@ void Czas::next_minuta() {
     
     if (minuta == 60) {
         minuta = 0;
-        next_hour();
+        next_godzina();
     }
 }
 
@@ -88,6 +88,6 @@ void Czas::next_sekunda() {
     
     if (sekunda == 60) {
         sekunda = 0;
-        next_minute();
+        next_minuta();
     }
 }
