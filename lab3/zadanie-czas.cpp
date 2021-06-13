@@ -31,6 +31,7 @@ auto main() -> int {
     //czas.next_minute();
     //czas.next_second();
     std::cout << czas.to_String() << "\n";
+    
     return 0;
 }
 
