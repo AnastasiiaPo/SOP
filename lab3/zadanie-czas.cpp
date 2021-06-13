@@ -10,9 +10,9 @@ struct Czas {
     
     Czas(value_type, value_type, value_type);
     auto to_String() const -> std::string;
-    void next_hour();
-    void next_minute();
-    void next_second();
+    void next_godzina();
+    void next_minuta();
+    void next_sekunda();
 };
 
 Czas::Czas(value_type g, value_type m, value_type s)
@@ -27,15 +27,15 @@ auto Czas::to_String() const -> std::string {
 
 auto main() -> int {
     auto czas = Czas(23, 59, 59);
-    //czas.next_hour();
-    //czas.next_minute();
-    //czas.next_second();
+    //czas.next_godzina();
+    //czas.next_minuta();
+    //czas.next_sekunda();
     std::cout << czas.to_String() << "\n";
     
     return 0;
 }
 
-void Czas::next_hour() {
+void Czas::next_godzina() {
     godzina++;
     
     if (godzina == 24) {
@@ -43,7 +43,7 @@ void Czas::next_hour() {
     }
 }
 
-void Czas::next_minute() {
+void Czas::next_minuta() {
     minuta++;
     
     if (minuta == 60) {
@@ -52,7 +52,7 @@ void Czas::next_minute() {
     }
 }
 
-void Czas::next_second() {
+void Czas::next_sekunda() {
     sekunda++;
     
     if (sekunda == 60) {
